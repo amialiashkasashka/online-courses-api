@@ -1,12 +1,12 @@
 version: '3.7'
 services:
   web:
-    build: online_courses/.
+    build: online_courses_root/.
     command: sh -c 'python manage.py makemigrations &&
             python manage.py migrate &&
             python manage.py runserver 0.0.0.0:8000'
     volumes:
-    - ./online_courses/:/code
+    - ./online_courses_root/:/code
     ports:
     - 8000:8000
     depends_on:

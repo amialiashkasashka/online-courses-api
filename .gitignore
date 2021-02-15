@@ -58,7 +58,7 @@ cover/
 # Django stuff:
 *.log
 local_settings.py
-online_courses/db.sqlite3
+online_courses_root/db.sqlite3
 db.sqlite3-journal
 
 # Flask stuff:
