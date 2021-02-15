@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  web:
+    build: online_courses/.
+    command: sh -c 'python manage.py makemigrations &&
+            python manage.py migrate &&
+            python manage.py runserver 0.0.0.0:8000'
+    volumes:
+    - ./online_courses/:/code
+    ports:
+    - 8000:8000
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    restart: always
+    env_file:
+      - env.dev
+    volumes:
+    - postgres:/var/lib/postgresql/data/
+    ports:
+    - 5432:5432
+
+volumes:
+  postgres:
